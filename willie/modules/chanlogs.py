@@ -132,7 +132,7 @@ def log_message(bot, message):
     fpath = get_fpath(bot, message)
     with bot.memory['chanlog_locks'][fpath]:
         with open(fpath, "ab") as f:
-            f.write(logline.encode('utf8'))
+            f.write(logline.decode('utf8').encode('utf8'))
 
 
 @willie.module.rule('.*')
